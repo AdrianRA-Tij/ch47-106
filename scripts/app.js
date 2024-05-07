@@ -38,7 +38,7 @@ function saveTask()
 function testResquest()
 {
     $.ajax({
-        type: "delete",
+        type: "GET",
         url:"http://fsdiapi.azurewebsites.net",
         success: function(response) {
             console.log(response);
