@@ -1,0 +1,92 @@
+
+/* Resetting Margins */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .task{
+    margin: 10px 20px;
+    border: 2px solid #333;
+  }
+  
+  /* Main Section Styling */
+  main {
+    display: flex;
+    height: calc(100vh - 90px); /* Adjust as needed */
+    background: linear-gradient(to bottom, #ffecd9, #fff5ec);
+  }
+  
+  /* List Section Styling */
+  #list {
+    background-color: #fff0e6; /* Light coral */
+    flex: 2; /* Adjust the flex values as needed */
+    padding: 20px; /* Add some padding */
+    border-right: 1px solid #ffdbc9; /* Light orange border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+  }
+  
+  /* Form Section Styling */
+  #form {
+    background-color: #fff5ec; /* Light peach */
+    flex: 1; /* Adjust the flex values as needed */
+    padding: 20px; /* Add some padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+  }
+  
+  /* Form Inputs Styling */
+  #form input[type="text"],
+  #form textarea,
+  #form select,
+  #form input[type="datetime-local"],
+  #form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ffdbc9; /* Light orange border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background for inputs */
+    font-size: 16px; /* Larger font size */
+    color: #8b4513; /* Dark brown text color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Submit Button Styling */
+  #form button[type="submit"] {
+    background-color: #ff8c00; /* Orange button */
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px; /* Larger font size */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  #form button[type="submit"]:hover {
+    background-color: #e67e22; /* Darker orange on hover */
+  }
+  
+  /* Fancy Animation on List Section */
+  #list {
+    animation: shimmer 2s infinite alternate;
+    background: linear-gradient(to right, #fff0e6 8%, #ffecd9 18%, #fff0e6 33%);
+    background-size: 1000px 100%;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
