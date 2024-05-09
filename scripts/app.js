@@ -11,11 +11,30 @@ function saveTask()
     console.log(title, desc, color, date, status, budget);
     //build an object
     let taskToSave = new Task (title, desc, color, date, status,budget);
-    console.log(taskToSave);
-    displayTask(taskToSave);
-        //save to the sever
+    //displayTask(taskToSave);
+   
+    //save to the sever
+
+        $.ajax({
+            type: "POST",
+            url:"http://fsdiapi.azurewebsites.net/api/tasks/",
+            data: JSON.stringify(taskToSave),
+            contentType: "application/json",
+            success: function(response){
+                console.log(response);
+                // displayTask(response);
+                // displayTask(res);
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
+
        //display the task
-    function displayTask(task)
+    
+}
+
+function displayTask(task)
     {
         let syntax = `<div class="task" style="border-color:${task.color}">
         <div class="info">
@@ -31,8 +50,31 @@ function saveTask()
         `;
         $(".pending-task").append(syntax);
     }
-  
-  
+
+function loadTask(){
+    $.ajax({
+        type: "GET",
+        url: "http://fsdiapi.azurewebsites.net/api/tasks",
+        success: function(res)
+        {
+            let data = JSON.parse(res);
+            console.log(data);
+            for(let i=0; i<data.length; i++) {
+                let task = data[i];
+                if(task.name == "ch47")
+                {                
+                displayTask(task)
+                }
+            }
+            displayTask(data);
+            console.log(res);
+        },
+        error: function(error)
+        {
+            console.log(error)
+        }
+
+    });
 }
 
 function testResquest()
@@ -49,12 +91,12 @@ function testResquest()
     });
 }
 
-
 function init() {
     //load data  
     //retrive data
     //hook events
     $("#btnSave").click(saveTask);//this is usign jQuery
+    loadTask();
     
     
 }
